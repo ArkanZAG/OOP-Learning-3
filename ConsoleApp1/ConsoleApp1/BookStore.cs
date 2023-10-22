@@ -47,10 +47,36 @@ public class BookStore
         foreach (var employee in employees)
         {
             IRoles role = employee.role;
-            if (role is InventoryManager im)
+            float totalBookPrice = 0;
+
+            if (role is InventoryManager inventoryManager)
             {
-                
+                Genre[] genres = inventoryManager.genres;
+
+                foreach (var genre in genres)
+                {
+                    foreach (var book in books)
+                    {
+                        if (genre == book.GetGenre())
+                        {
+                            float bookPrice = book.GetPrice();
+                            totalBookPrice = totalBookPrice + bookPrice;
+                        }
+                    }
+                }
+                Console.WriteLine("Nama Employee : " + employee.employeesName + " " + "Total Book Price : " + totalBookPrice);
             }
         }
     }
+    
+    
+    // Goal : mencari nilai total harga dr genre yang di tangguhkan kepada masing-masing inventorymanager
+    // mencari tahu genre apa saja yang di tangguhkan kepada masing-masing inventorymanager
+    // - cari employee dengan role inventorymanager dengan foreach
+    // - buat int TotalBookPrice
+    // - ambil genre dari inventorymanager 
+    
+    // mencari tahu total harga buku di genre yang di tangguhkan kepada masing-masing inventorymanager
+    // - access list<books> dengan foreach untuk mengecheck genre buku teresebut sama dengan genre yang di tangguhkan kepada inventorymanager
+    // - kalau benar, harga buku tersebut akan di simpan dan di tambahkan ke TotalBookPrice.
 }

@@ -25,4 +25,9 @@ public class Book
     {
         return genre;
     }
+
+    public float GetPrice()
+    {
+        return price;
+    }
 }

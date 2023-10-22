@@ -3,7 +3,7 @@ namespace ConsoleApp1;
 public class Employee
 {
     public IRoles role;
-    private string employeesName;
+    public string employeesName;
 
     public Employee(IRoles role, string employeesName)
     {
